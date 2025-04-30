@@ -1,0 +1,189 @@
+
+.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; 
+}
+
+@media  (min-aspect-ratio:16/9){
+    .bg{
+        width: 100%;
+        height: auto;
+        }
+}
+
+.inp-add{
+    text-align: center;
+}
+.ul{
+    height: 500px;
+    overflow-y: auto;
+}
+.item p {
+    flex-grow: 1; 
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 70%;
+}
+
+.btns {
+    display: flex;
+    gap: 5px;
+    flex-shrink: 0;
+    align-items: center;
+}
+
+    
+/*  s inp_effect */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.3s ease-in-out;
+    border: 2px solid red;
+}
+
+.bace{
+    background: transparent;
+    backdrop-filter: blur(30px);
+    padding: 20px 23px;
+    
+}
+/*  e inp_effect */
+.todo_list {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.todo_list.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+ /* loding */
+
+ .loading_box{
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    box-shadow:0px 0px 400px rgb(255, 123, 0);
+
+}
+.icon{
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+
+
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.loading_ring {
+    width: 250px;
+    height: 250px;
+    border: 10px solid rgba(255, 166, 0, 0.3);
+    border-top: 10px solid rgb(255, 123, 0);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin 2s linear infinite; 
+}
+    
+/* scroll bar */
+
+
+/* Scrollbar width */
+::-webkit-scrollbar {
+    width: 10px;  /* Vertical scrollbar */
+    height: 10px; /* Horizontal scrollbar */
+}
+
+/* Scrollbar Track */
+::-webkit-scrollbar-track {
+    background: #00000067; /* Light gray */
+    border-radius: 10px;
+}
+
+/* Scrollbar Handle */
+::-webkit-scrollbar-thumb {
+    background: #b17373; /* Dark gray */
+    border-radius: 10px;
+}
+
+/* Scrollbar Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #9e0000;
+}
+
+
+
+
+::-webkit-scrollbar {.fake-space {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px; /* Creates space */
+    height: 100%;
+    background: white;
+}
+    width: 16px; /* Make scrollbar wider */
+}
+
+::-webkit-scrollbar-track {
+    margin: 5px; /* Adds space around scrollbar */
+}
+
+
+.ul {
+    padding-right: 15px; /* Creates space inside the scrollbar */
+}
+.eror {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px; /* حداقل عرض */
+    min-height: 50px; /* حداقل ارتفاع */
+    width: auto;
+    height: auto;
+    padding: 10px;
+    background: rgb(255, 89, 89);
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5);
+    transition: opacity 0.5s ease-in-out;
+}
