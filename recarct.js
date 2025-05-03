@@ -131,4 +131,114 @@ bt_add.addEventListener("click", function () {
     box.classList.add("d-none");
     ring.classList.add("d-none");
   }, 3000);
-  
+  // انتخاب المان‌های مورد نیاز
+const modeToggle1 = document.querySelector('.mod-border');
+const modeToggle2 = document.querySelector('#mod-border-remot');
+const moonIcon = document.querySelector('.moon-icon');
+const body = document.body;
+
+// بررسی حالت ذخیره‌شده در localStorage هنگام بارگذاری صفحه
+document.addEventListener('DOMContentLoaded', () => {
+    const savedMode = localStorage.getItem('theme');
+    if (savedMode === 'dark') {
+        body.classList.add('dark-mode');
+        moonIcon.classList.remove('bi-moon-fill');
+        moonIcon.classList.add('bi-sun-fill');
+    } else {
+        body.classList.remove('dark-mode');
+        moonIcon.classList.remove('bi-sun-fill');
+        moonIcon.classList.add('bi-moon-fill');
+    }
+});
+
+// افزودن رویداد کلیک برای تغییر حالت (modeToggle1)
+modeToggle1.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+        moonIcon.classList.remove('bi-moon-fill');
+        moonIcon.classList.add('bi-sun-fill');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        moonIcon.classList.remove('bi-sun-fill');
+        moonIcon.classList.add('bi-moon-fill');
+        localStorage.setItem('theme', 'light');
+    }
+});
+
+// افزودن رویداد کلیک برای تغییر حالت (modeToggle2)
+modeToggle2.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+        moonIcon.classList.remove('bi-moon-fill');
+        moonIcon.classList.add('bi-sun-fill');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        moonIcon.classList.remove('bi-sun-fill');
+        moonIcon.classList.add('bi-moon-fill');
+        localStorage.setItem('theme', 'light');
+    }
+});
+
+// کدهای تکراری برای بررسی حالت نایت مود در DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+    const savedMode = localStorage.getItem('theme');
+    if (savedMode === 'dark') {
+        body.classList.add('dark-mode');
+        moonIcon.classList.remove('bi-moon-fill');
+        moonIcon.classList.add('bi-sun-fill');
+    } else {
+        body.classList.remove('dark-mode');
+        moonIcon.classList.remove('bi-sun-fill');
+        moonIcon.classList.add('bi-moon-fill');
+    }
+});
+
+// بخش مربوط به مدیریت نایت مود در کد جامع‌تر
+document.addEventListener('DOMContentLoaded', () => {
+    const moonIcons = document.querySelectorAll('.moon-icon');
+    const savedMode = localStorage.getItem('theme');
+    if (savedMode === 'dark') {
+        body.classList.add('dark-mode');
+        moonIcons.forEach(icon => {
+            icon.classList.remove('bi-moon-fill');
+            icon.classList.add('bi-sun-fill');
+        });
+    }
+    const toggleMode = () => {
+        body.classList.toggle('dark-mode');
+        const isDark = body.classList.contains('dark-mode');
+        moonIcons.forEach(icon => {
+            icon.classList.toggle('bi-moon-fill', !isDark);
+            icon.classList.toggle('bi-sun-fill', isDark);
+        });
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    };
+    modeToggle1?.addEventListener('click', toggleMode);
+    modeToggle2?.addEventListener('click', toggleMode);
+});
+
+// تغییر حالت برای آیکون‌های جداگانه
+const moonIcon1 = document.querySelector('.mod-border .moon-icon');
+const moonIcon2 = document.querySelector('#mod-border-remot .moon-icon');
+
+modeToggle1.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+        moonIcon1.classList.remove('bi-moon-fill');
+        moonIcon1.classList.add('bi-sun-fill');
+    } else {
+        moonIcon1.classList.remove('bi-sun-fill');
+        moonIcon1.classList.add('bi-moon-fill');
+    }
+});
+
+modeToggle2.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+        moonIcon2.classList.remove('bi-moon-fill');
+        moonIcon2.classList.add('bi-sun-fill');
+    } else {
+        moonIcon2.classList.remove('bi-sun-fill');
+        moonIcon2.classList.add('bi-moon-fill');
+    }
+});
